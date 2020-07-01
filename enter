@@ -1,0 +1,12 @@
+#!/bin/bash
+
+image_name="zchen_topn_contributor_ro"
+
+if [ -z "$(docker images -q $image_name 2>/dev/null)" ]; then
+    docker build -t $image_name . 
+fi
+
+docker run -it --rm                  \
+       -v "$PWD":/go/src/$image_name \
+       --name zchen_topn_container   \
+       $image_name /bin/sh
