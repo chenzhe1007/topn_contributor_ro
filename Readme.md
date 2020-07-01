@@ -29,6 +29,7 @@ the docker env is good for both development and run time
 
 The execution is broken up into three phases
 
+```
 Repolist Fetch (1 go routine)
 --------------->[ contribute list job channel  ]       [   contribution counts channel ]
                                                                                
@@ -38,6 +39,7 @@ Repolist Fetch (1 go routine)
                    contribute list processor  -----------------
                    a pool of go routine
                    lisenting  on this chanel                                  
+```
 
 Design Notes:
 1. the contribute list processor will only spin up the specified concurrency and tops at 20
